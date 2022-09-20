@@ -14,3 +14,63 @@ body {
     right: 1rem;
     bottom: 1rem;
 }
+
+#chatBox {
+    position:fixed;
+    background-color: white;
+    border: solid .2rem black;
+    width: 40vw;
+    height: 40vh;
+    top: 30vh;
+    left: 30vw;
+    display: grid;
+    grid-template-rows: 6fr 1fr;
+    padding: .1rem;
+}
+
+#nameBox {
+    position:fixed;
+    background-color: white;
+    border: solid .2rem black;
+    width: 20vw;
+    height: 10vh;
+    top: 45vh;
+    left: 40vw;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: .1rem;
+}
+
+
+
+#chatBox.hide, #nameBox.hide {
+    left:100vw;
+}
+
+p {
+    background-color: rgb(195, 193, 193);
+    padding: .6rem;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 25px;
+    margin-bottom: 2px;
+    max-width: 60%;
+    overflow-wrap: break-word;
+}
+
+p.me{
+    background-color: rgb(80, 80, 255);
+    color: white;
+    right: 0;
+    margin-left: auto;
+}
+
+#chat {
+    overflow-y: scroll;
+    width: 100%;
+    position: relative;
+}
+
+#message {
+    padding: .5rem;
+}
