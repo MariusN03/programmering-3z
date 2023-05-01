@@ -1,5 +1,5 @@
 class Bullet{
-    constructor(x_, y_){
+    constructor(x_, y_, missile){
         this.x = x_;
         this.y = y_;
         this.speed = -10;
@@ -9,7 +9,8 @@ class Bullet{
     display() {
         ellipseMode(CENTER);
         fill(255, this.a);
-        ellipse(this.x, this.y, this.r * 2);
+        image(missile, this.x, this.y, this.r *4, this.r*6)
+        // ellipse(this.x, this.y, this.r * 2);
       }
     
     move() {

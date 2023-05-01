@@ -12,12 +12,16 @@ let face
 
 function preload(){
     face = loadImage('assets/face.png')
+    bg = loadImage('assets/background2.jpg')
+    pickle = loadImage('assets/pickle.png')
+    missile = loadImage('assets/missile.png')
+    // bg = 'blue'
 }
 
 function setup(){
     createCanvas(windowWidth, windowHeight)
     
-    background('lightblue')
+    // background(bg)
 
     diameter = 90
     x = windowWidth/2
@@ -28,15 +32,17 @@ function setup(){
     rect2X = Math.random()*(windowWidth - rectW)
     rect3X = Math.random()*(windowWidth - rectW)
     rect1Y = 0
-    rect2Y = 0
-    rect3Y = 0
+    rect2Y = -50
+    rect3Y = -100
 
 }
 
 function draw(){
-
+    clear();
     if(gameStatus){
-        background('lightblue')
+        imageMode(CORNER)
+        background(bg)
+        imageMode(CENTER)
         update()
         show()
         showRect()
@@ -46,6 +52,7 @@ function draw(){
 
     }else{
         background('black')
+        select('#info').html('')
         if(keyIsDown(82)){
             location.reload()
         }
@@ -55,9 +62,13 @@ function draw(){
 }
 
 function showRect(){
-    rect(rect1X, rect1Y, rectW, rectH)
-    rect(rect2X, rect2Y, rectW, rectH)
-    rect(rect3X, rect3Y, rectW, rectH)
+    // rect(rect1X, rect1Y, rectW, rectH)
+    // rect(rect2X, rect2Y, rectW, rectH)
+    // rect(rect3X, rect3Y, rectW, rectH)
+    imageMode(CENTER)
+    image(pickle, rect1X, rect1Y, rectW, rectH)
+    image(pickle, rect2X, rect2Y, rectW, rectH)
+    image(pickle, rect3X, rect3Y, rectW, rectH)
 }
 
 function updateRect(){
@@ -182,7 +193,7 @@ function collission(){
 
 function keyPressed(){
     if(keyCode == 32){
-        let b = new Bullet(x, y);
+        let b = new Bullet(x, y, missile);
         bullets.push(b);
 
     }
